@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+
+@theme {
+ 
+  --color-grayish: #7C8685;
+  --color-soft-green: #AAACA1;
+  --color-bright-red: #E3311D;
+  --color-dark-brown: #362E2D;
+  --color-near-black: #050507;
+  --inset-shadow-left-right: inset 5px 0 10px -5px rgba(227, 49, 29, 0.5), inset -5px 0 10px -5px rgba(227, 49, 29, 0.5);
+
+}
+
+body{
+  background:  #b6bbba;
+  margin: 5rem;
+}
+
+.button-shadow {
+  background-color: #fff; /* or your button background */
+  color: #E3311D;
+  
+  cursor: pointer;
+  
+  transition: box-shadow 0.3s ease;
+}
+
+.button-shadow:hover {
+  border: 1px #E3311D;
+  box-shadow: 0 6px 10px rgba(227, 49, 29, 0.7); /* stronger shadow on hover */
+}
