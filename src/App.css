@@ -14,12 +14,12 @@
 
 body{
   background:  #b6bbba;
-  margin: 5rem;
+ 
 }
 
 .button-shadow {
   background-color: #fff; /* or your button background */
-  color: #E3311D;
+  color: #000000;
   
   cursor: pointer;
   
@@ -27,6 +27,14 @@ body{
 }
 
 .button-shadow:hover {
-  border: 1px #E3311D;
-  box-shadow: 0 6px 10px rgba(227, 49, 29, 0.7); /* stronger shadow on hover */
+  border: 1px #000000;
+  box-shadow: 0 6px 10px rgba(23, 23, 23, 0.7); /* stronger shadow on hover */
+}
+
+.div-shadow{
+  box-shadow: 0 6px 10px rgba(23, 23, 23, 0.7); /* stronger shadow on hover */
+}
+
+.card-one-link .link-hidden{
+  display: nonex ;
 }
