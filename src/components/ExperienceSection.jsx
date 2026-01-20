@@ -1,5 +1,6 @@
 import React from 'react'
 import aitsimg from "../assets/images/aits.png"
+import npdclimg from "../assets/images/npdcl.png"
 import { SiVite,SiSpring,SiAwssecretsmanager,SiMongodb,SiSocketdotio } from "react-icons/si";
 import { FaAws } from "react-icons/fa";
 import { FaNodeJs ,FaLink} from "react-icons/fa";
@@ -9,17 +10,16 @@ const ExperienceSection = ({setGalleryOpen}) => {
 
   // Experience Data
 const experiences = [
-  {
-    companyLogo: aitsimg,
-    companyName: "Analogue IT Solutions",
+   {
+    companyLogo: npdclimg,
+    companyName: "npdcl",
     role: "Fullstack Developer",
-    duration: "04/2023 to Present",
+    duration: "03/2025 to Present",
     techStack: [SiVite, SiSpring, FaNodeJs, SiMongodb, FaAws, SiSocketdotio],
     projects: [
       {
-        name: "Scuti Arts",
-        role: "Frontend",
-        link: "https://scutiarts.com",
+        name: "Employee Dashboard APP",
+        role: "BACKEND",
         description: [
           "Developed a high-performance eCommerce platform using React.js with digital/physical artworks buying & bidding.",
           "Implemented real-time bidding with Socket.IO and WebSockets.",
@@ -36,9 +36,8 @@ const experiences = [
         ]
       },
       {
-        name: "Jonas Kitchen",
-        role: "React + Spring Dev",
-         link: "https://jonnaskitchen.com/",
+        name: "QUALITY CONTROL",
+        role: "SPRING MVC + JSP",
         description: [
           "Technologies: React.js, Spring Boot, MongoDB, Razorpay, WebSockets, AWS.",
           "Built dashboard UI with ReactJS, role-based layouts for users/trainers.",
@@ -53,7 +52,7 @@ const experiences = [
         ]
       },
       {
-        name: "Web Scraping Dashboard",
+        name: "SAP TO J2S",
         role: "Spring Boot + Selenium",
         description: [
           "Technologies: Spring Boot, Selenium WebDriver, MongoDB, REST APIs, Scheduler.",
@@ -64,7 +63,7 @@ const experiences = [
         ]
       },
       {
-        name: "Theatre Booking App",
+        name: "BTP TO APIS",
         role: "Backend Developer",
         description: [
           "Technologies: MongoDB, Node.js, Express.js, Handlebars.",
@@ -78,9 +77,9 @@ const experiences = [
   },
   {
     companyLogo: aitsimg,
-    companyName: "npdcl",
+    companyName: "Analogue IT Solutions",
     role: "Fullstack Developer",
-    duration: "03/2025 to Present",
+    duration: "04/2023 to 03/2025",
     techStack: [SiVite, SiSpring, FaNodeJs, SiMongodb, FaAws, SiSocketdotio],
     projects: [
       {
@@ -143,6 +142,7 @@ const experiences = [
       }
     ]
   }
+ 
   
 ];
 

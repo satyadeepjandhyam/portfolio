@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -8,24 +8,25 @@ import AnimatedIntro from './components/AnimatedIntro'
 import ExperienceSection from './components/ExperienceSection'
 import Gallery from './components/Gallery'
 import Contact from './components/Contact'
+import HeroSection from './components/HeroSection'
 
 
 function App() {
   const [count, setCount] = useState(0);
   const [isGalleryOpen,setIsgalleryOpen]=useState(false);
+  const aboutRef = useRef(null);
+  const expRef = useRef(null);
+ 
+  const contactRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
-      {/* home */}
       
-      {/* quick links */}
-      {/* {profile pic} */}
-      {/* about */}
-      {/* experience section*/}
-      {/* hobbies */}
-      {/* greetings and download section*/}
-      {/* contact */}
-      <div className=' mx-[5rem] mt-[5rem] bg-near-black h-[30rem] p-[2.5rem] border rounded-xl flex flex-row gap-5 justify-start items-center'>
+      {/* <div className=' mx-[5rem] mt-[5rem] bg-near-black h-[30rem] p-[2.5rem] border rounded-xl flex flex-row gap-5 justify-start items-center'>
           <div className='w-[30%] h-[100%]  '>
             <img className='w-full h-full border rounded-xl object-cover' src={profileimg} alt="" />
           </div>
@@ -47,30 +48,38 @@ function App() {
               <button></button>
             </div>
           </div>
-      </div>
-      
-      {/* <form
-      name="sdklaunch"
-      id="sdklaunch"
-      action="https://uat1.billdesk.com/u2/web/v1_2/embeddedsdk"
-      method="POST"
-    >
-      <input type="hidden" id="merchantid" name="merchantid" value="BDMERCID" />
-      <input type="hidden" id="bdorderid" name="bdorderid" value="OAVS21T9I8QL" />
-      <input
-        type="hidden"
-        id="rdata"
-        name="rdata"
-        value="89fd934cf8ca5ad76b8efbcf1d56c4.70675f706172616d5"
+      </div> */}
+        {/* Scroll space */}
+ <HeroSection
+        onAbout={() => scrollToSection(aboutRef)}
+        onExp={() => scrollToSection(expRef)}
+        onSkills={() => scrollToSection(skillsRef)}
+        onContact={() => scrollToSection(contactRef)}
       />
-      <button type="submit">Complete your Payment</button>
-    </form> */}
-      {/* <HoverLottie/> */}
-        <AnimatedIntro/>
+
+      
+        {/* <AnimatedIntro/>
         <ExperienceSection setGalleryOpen={()=>setIsgalleryOpen(true)}/>
        
         <Gallery isOpen={isGalleryOpen} isCLose={()=>{setIsgalleryOpen(false)}}/>
-      <Contact/>
+      <Contact/> */}
+
+      <section ref={aboutRef}>
+        <AnimatedIntro />
+      </section>
+
+      <section ref={expRef}>
+        <ExperienceSection setGalleryOpen={()=>setIsgalleryOpen(true)} />
+      </section>
+
+      {/* <section ref={skillsRef}>
+        <Skills />
+      </section> */}
+
+      <section ref={contactRef}>
+        <Gallery isOpen={isGalleryOpen} isCLose={()=>{setIsgalleryOpen(false)}}/>
+        <Contact />
+      </section>
     </>
   )
 }

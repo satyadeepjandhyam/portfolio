@@ -46,3 +46,9 @@ body{
 .card-one-link .link-hidden{
   display: nonex ;
 }
+
+
+.nav-btn {
+  @apply border w-[8rem] bg-white rounded-[0.2rem] h-[2rem] button-shadow 
+  hover:scale-105 transition duration-300;
+}

@@ -17,7 +17,7 @@ const ExpComponent = ({
     <>
     
     <div
-        className='w-full h-[5rem] mt-3 bg-white border rounded-xl flex items-center justify-start cursor-pointer'
+        className='w-full h-[5rem] mt-3 bg-white border rounded-xl flex items-center justify-start cursor-pointer hover:shadow-xl'
         onClick={() => setIsOpen(!isOpen)}
       >
         <div className='w-[20%] h-[100%]'>
