@@ -42,7 +42,7 @@ const Contact = () => {
 
 We are pleased to invite you for an interview for a position at ${formData.companyName || '[Company Name]'}. Please find the interview details below:
 
-- Interviewer's Name: ${formData.nameOfInterviewer || '[Name of Interviewer]'}
+- Interviewer's Name: ${formData.nameOfTheInterviewer || '[Name of Interviewer]'}
 - Interviewer's Email: ${formData.interviewerEmail || '[Interviewer Email]'}
 - Interviewer's Contact Number: ${formData.mobileNumber || '[Mobile Number]'}
 - Offered CTC: ₹${formData.ctc || '[CTC]'}
@@ -54,7 +54,7 @@ ${formData.jd || '[Job Description here...]'}
 We look forward to speaking with you and learning more about your background.
 
 Warm regards,  
-${formData.nameOfInterviewer || '[Name of Interviewer]'}  
+${formData.nameOfTheInterviewer || '[Name of Interviewer]'}  
 ${formData.companyName || '[Company Name]'}`;
   };
 
@@ -187,7 +187,7 @@ ${formData.companyName || '[Company Name]'}`;
           </textarea>
         </div>
         <div className='w-full flex items-center justify-center mt-5'>
-          <input type="button" className=' bg-white w-[10rem] h-[3rem] rounded-xl cursor-pointer' onClick={handleSubmit} value={"submit"} name='submit'  />
+          <input type="button" className='  w-[10rem] h-[3rem] rounded-xl cursor-pointer bg-blue-700 text-white' onClick={()=>{handleCopy()}} value={"copy the message"} name='copy'  />
         </div>
       </div>
       <div className='w-6/12 h-[100%] p-5 '>

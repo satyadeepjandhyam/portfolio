@@ -40,7 +40,7 @@ const ExpComponent = ({
       </div>
 <div
     className={`transition-all duration-500 ease-in-out overflow-hidden ${
-      isOpen ? 'max-h-[1000px] opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-5 hidden'
+      isOpen ? ' opacity-100 translate-y-0' : 'max-h-0 opacity-0 -translate-y-5 hidden'
     } w-full bg-white border rounded-xl mt-3 p-5`}
   >
     <p className='text-[2rem] ml-5'>Projects</p>
