@@ -15,13 +15,14 @@ const HeroSection = ({ onAbout, onExp, onSkills, onContact }) => {
   const marginTop = useTransform(scrollYProgress, [0, 1], ["5rem", "1rem"]);
   const padding = useTransform(scrollYProgress, [0, 1], ["2.5rem", "1rem"]);
 
-  // Image animation (square → circle)
-  // const imageScale = useTransform(scrollYProgress, [0, 1], [1, 0.45]);
-  // const imageRadius = useTransform(scrollYProgress, [0, 1], ["1rem", "50%"]);
-  const imageSize = useTransform(scrollYProgress, [0, 1], ["30%", "5rem"]);
+
 // Image animation (square → circle)
-const imageScale = useTransform(scrollYProgress, [0, 1], [1, 0.45]);
+// Image morph
+const imageWidth = useTransform(scrollYProgress, [0, 1], ["20%", "4rem"]);
+const imageHeight = useTransform(scrollYProgress, [0, 1], ["100%", "5rem"]);
 const imageRadius = useTransform(scrollYProgress, [0, 1], ["1rem", "50%"]);
+
+
   // Hero text fade out
   const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
@@ -43,25 +44,24 @@ const imageRadius = useTransform(scrollYProgress, [0, 1], ["1rem", "50%"]);
         "
       >
 
-       {/* Image */}
+    {/* Image */}
 <motion.div
   style={{
-    scale: imageScale,
+    width: imageWidth,
+    height: imageHeight,
     borderRadius: imageRadius,
+    maxHeight: "100%",
   }}
-  className="
-    w-[30%] 
-    aspect-square 
-    overflow-hidden 
-    flex-shrink-0
-  "
+  className="overflow-hidden flex-shrink-0"
 >
   <img
-    className="w-full h-full border rounded-xl object-cover"
     src={profileimg}
+    className="w-full h-full object-cover"
     alt=""
   />
 </motion.div>
+
+
 
         {/* Hero Content (fades out) */}
         <motion.div
