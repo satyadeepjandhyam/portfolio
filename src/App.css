@@ -49,6 +49,6 @@ body{
 
 
 .nav-btn {
-  @apply border w-[8rem] bg-white rounded-[0.2rem] h-[2rem] button-shadow 
-  hover:scale-105 transition duration-300;
+  @apply border w-[8rem] bg-white rounded-[0.2rem] h-[2rem] shadow-md
+  hover:scale-105 hover:shadow-lg transition duration-300;
 }
