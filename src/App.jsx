@@ -25,7 +25,6 @@ function App() {
 
   return (
     <>
-      
       {/* <div className=' mx-[5rem] mt-[5rem] bg-near-black h-[30rem] p-[2.5rem] border rounded-xl flex flex-row gap-5 justify-start items-center'>
           <div className='w-[30%] h-[100%]  '>
             <img className='w-full h-full border rounded-xl object-cover' src={profileimg} alt="" />
@@ -49,12 +48,13 @@ function App() {
             </div>
           </div>
       </div> */}
+      
         {/* Scroll space */}
  <HeroSection
-        onAbout={() => scrollToSection(aboutRef)}
-        onExp={() => scrollToSection(expRef)}
-        onSkills={() => scrollToSection(skillsRef)}
-        onContact={() => scrollToSection(contactRef)}
+        onAbout={() => scrollTo(aboutRef)}
+        onExp={() => scrollTo(expRef)}
+        onSkills={() => scrollTo(skillsRef)}
+        onContact={() => scrollTo(contactRef)}
       />
 
       

@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import FloatingImage from "./FloatingImage";
+import profileimg from "../assets/profile.png";
 
 const HeroSection = ({ onAbout, onExp, onSkills, onContact }) => {
   const sectionRef = useRef(null);
@@ -10,103 +10,110 @@ const HeroSection = ({ onAbout, onExp, onSkills, onContact }) => {
     offset: ["start start", "end start"],
   });
 
-  // Hero → Navbar morphing
-  const height = useTransform(scrollYProgress, [0, 1], ["30rem", "5rem"]);
+  // Container animation
+  const height = useTransform(scrollYProgress, [0, 1], ["30rem", "6rem"]);
+  const marginTop = useTransform(scrollYProgress, [0, 1], ["5rem", "1rem"]);
   const padding = useTransform(scrollYProgress, [0, 1], ["2.5rem", "1rem"]);
-  const borderRadius = useTransform(scrollYProgress, [0, 1], ["1.5rem", "1rem"]);
-  const marginTop = useTransform(scrollYProgress, [0, 1], ["15rem", "15px"]);
 
-  // Content fade
+  // Image animation (square → circle)
+  // const imageScale = useTransform(scrollYProgress, [0, 1], [1, 0.45]);
+  // const imageRadius = useTransform(scrollYProgress, [0, 1], ["1rem", "50%"]);
+  const imageSize = useTransform(scrollYProgress, [0, 1], ["30%", "5rem"]);
+// Image animation (square → circle)
+const imageScale = useTransform(scrollYProgress, [0, 1], [1, 0.45]);
+const imageRadius = useTransform(scrollYProgress, [0, 1], ["1rem", "50%"]);
+  // Hero text fade out
   const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
-  // Image morph
-  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 0.35]);
-  const imageBorderRadius = useTransform(scrollYProgress, [0, 1], ["1rem", "50%"]);
-  const imageShadow = useTransform(
-    scrollYProgress,
-    [0, 1],
-    ["0px 0px 30px rgba(255,255,255,0.5)", "0px 0px 15px rgba(255,255,255,0.9)"]
-  );
-
-  // Button color change
-  const buttonColor = useTransform(scrollYProgress, [0.4, 1], ["#000", "#fff"]);
+  // Navbar buttons fade in
+  const navOpacity = useTransform(scrollYProgress, [0.4, 1], [0, 1]);
 
   return (
     <section ref={sectionRef} className="h-[200vh]">
-      <motion.div
-        style={{
-          height,
-          padding,
-          borderRadius,
-          marginTop,
-        }}
-        className="fixed top-[15px] left-1/2 -translate-x-1/2 
-                   w-[90%] max-w-[1200px]
-                   bg-near-black border 
-                   flex gap-5 items-center z-50 overflow-hidden"
-      >
-        {/* Profile Image */}
-        <motion.div
-          style={{
-            scale: imageScale,
-            borderRadius: imageBorderRadius,
-            boxShadow: imageShadow,
-          }}
-          className="w-[12rem] h-[12rem] overflow-hidden flex-shrink-0"
-        >
-          <FloatingImage isNavbar />
-        </motion.div>
 
-        {/* Hero Content (fade away) */}
+      <motion.div
+        style={{ height, marginTop, padding }}
+        className="
+          fixed top-[15px]
+          mx-[5rem]
+          w-[calc(100%-10rem)]
+          bg-near-black border rounded-xl
+          flex flex-row gap-5 justify-start items-center
+          z-50
+        "
+      >
+
+       {/* Image */}
+<motion.div
+  style={{
+    scale: imageScale,
+    borderRadius: imageRadius,
+  }}
+  className="
+    w-[30%] 
+    aspect-square 
+    overflow-hidden 
+    flex-shrink-0
+  "
+>
+  <img
+    className="w-full h-full border rounded-xl object-cover"
+    src={profileimg}
+    alt=""
+  />
+</motion.div>
+
+        {/* Hero Content (fades out) */}
         <motion.div
           style={{ opacity: contentOpacity }}
-          className="flex-1 h-full bg-soft-green rounded-xl p-[2.5rem] 
-                     flex flex-col justify-between"
+          className="w-[70%] h-full bg-soft-green rounded-xl p-[2.5rem] flex flex-col gap-y-5"
         >
-          <div className="flex flex-col items-end">
-            <p className="text-[3rem] font-semibold">SATYADEEP JANDHYAM</p>
-            <p className="text-[1rem]">Sr. Fullstack Developer</p>
+          <div className="flex flex-col items-end justify-end">
+            <p className="text-[3rem] font-[10]">SATYADEEP JANDHYAM</p>
+            <p className="text-[1rem]">Sr. Fullstack developer</p>
           </div>
 
-          <p className="text-[1.5rem] text-dark-brown">
-            Hi I am Satyadeep, Welcome to my profile.
-          </p>
+          <div>
+            <p className="text-[1.5rem] text-dark-brown">
+              Hii iam satyadeep, Welcome to my profile.
+            </p>
+          </div>
+
+          <div className="flex flex-row gap-x-10">
+            <button onClick={onAbout} className="border w-[8rem] bg-white rounded-[0.2rem] h-[2rem] button-shadow">
+              About
+            </button>
+            <button onClick={onExp} className="border w-[8rem] bg-white rounded-[0.2rem] h-[2rem] button-shadow">
+              Experience
+            </button>
+            <button onClick={onSkills} className="border w-[8rem] bg-white rounded-[0.2rem] h-[2rem] button-shadow">
+              Skills
+            </button>
+            <button onClick={onContact} className="border w-[8rem] bg-white rounded-[0.2rem] h-[2rem] button-shadow">
+              Contact
+            </button>
+          </div>
         </motion.div>
 
-        {/* Navbar Buttons */}
-        <div className="flex gap-8 ml-auto">
-          <motion.button
-            style={{ color: buttonColor }}
-            onClick={onAbout}
-            className="nav-btn"
-          >
+        {/* Navbar buttons (fade in, replace name area) */}
+        <motion.div
+          style={{ opacity: navOpacity }}
+          className="absolute right-10 flex gap-x-8"
+        >
+          <button onClick={onAbout} className="border px-6 bg-white rounded-md h-[2rem]">
             About
-          </motion.button>
-
-          <motion.button
-            style={{ color: buttonColor }}
-            onClick={onExp}
-            className="nav-btn"
-          >
+          </button>
+          <button onClick={onExp} className="border px-6 bg-white rounded-md h-[2rem]">
             Experience
-          </motion.button>
-
-          <motion.button
-            style={{ color: buttonColor }}
-            onClick={onSkills}
-            className="nav-btn"
-          >
+          </button>
+          <button onClick={onSkills} className="border px-6 bg-white rounded-md h-[2rem]">
             Skills
-          </motion.button>
-
-          <motion.button
-            style={{ color: buttonColor }}
-            onClick={onContact}
-            className="nav-btn"
-          >
+          </button>
+          <button onClick={onContact} className="border px-6 bg-white rounded-md h-[2rem]">
             Contact
-          </motion.button>
-        </div>
+          </button>
+        </motion.div>
+
       </motion.div>
     </section>
   );
