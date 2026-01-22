@@ -5,6 +5,7 @@ import ExperienceSection from "./components/ExperienceSection";
 import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import HeroSection from "./components/HeroSection";
+import SkillsSection from "./components/SkillsSection";
 // import Skills from "./components/Skills"; // if you have it
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
       <section ref={skillsRef} className="scroll-mt-28">
         {/* <Skills /> */}
         {/* temporary */}
-        <div className="mx-4 md:mx-20 py-20">Skills Section</div>
+         <SkillsSection />
       </section>
 
       <section ref={contactRef} className="scroll-mt-28">
